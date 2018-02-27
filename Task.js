@@ -11,7 +11,8 @@ function main(){
     let lines = parseCsvFileToLines(data);
     //3.split lines to Headers and keys
     let { headers , keys}= splitLinesToHeadersAndKeys(lines);
-
+    //4.parse lines to array of users 
+    let usersArray = parseLinesToArryOfUsers(lines, keys);
     
 
 }
@@ -26,4 +27,17 @@ function splitLinesToHeadersAndKeys(lines){
     let headers = lines.shift();
     let keys = headers.split(",");
     return { headers, keys }
+}
+
+function parseLinesToArryOfUsers(lines,keys){
+    let users = lines.map(line => {
+        let obj = {};
+        value = line.split(',');
+        keys.forEach((item, index) => {
+            obj[item] = value[index];
+        });
+
+        return obj;
+    });
+    return users;
 }
