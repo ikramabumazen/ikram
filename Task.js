@@ -112,3 +112,13 @@ function idValidation(id , usersArray) {
 function emailValidation(email) {
     return !! email && IsIncludeAt(email, '@');
 }
+
+//4
+function   ageValidation(age){
+    return age >0;
+    }
+//5
+function IsIncludeAt(st , sub){
+    return st.indexOf(sub) > -1
+}
+    
