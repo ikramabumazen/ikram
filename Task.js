@@ -13,7 +13,11 @@ function main(){
     let { headers , keys}= splitLinesToHeadersAndKeys(lines);
     //4.parse lines to array of users 
     let usersArray = parseLinesToArryOfUsers(lines, keys);
-    
+    //5.validation 
+      //1.validateUsers
+      let array= [];
+      array = validUsers(usersArray);
+
 
 }
 
@@ -29,6 +33,14 @@ function splitLinesToHeadersAndKeys(lines){
     return { headers, keys }
 }
 
+function parseFileToLinesAndHeaders(fileContent) {
+    let lines = fileContent.split("\n")
+    //console.log(lines);
+    let headers = lines.shift();
+    let keys = headers.split(",");
+    return { lines, headers, keys }
+}
+
 function parseLinesToArryOfUsers(lines,keys){
     let users = lines.map(line => {
         let obj = {};
@@ -41,3 +53,20 @@ function parseLinesToArryOfUsers(lines,keys){
     });
     return users;
 }
+
+function validUsers(usersArray){
+    let validU = [];
+    let invalidU = [];
+
+    usersArray.forEach((user, index) => {
+        if ( isValidU(user, usersArray) && !idDublication(user.id, usersArray)) {
+            validU.push(user);
+        }
+        else {
+            invalidU.push(user);
+        }
+    })
+    
+    return {  validU , invalidU };
+}
+
