@@ -103,3 +103,8 @@ function idDublication(id, usersArray){
     }
 }
 
+//2
+function idValidation(id , usersArray) {
+    return id == true ;
+    }
+    
