@@ -107,4 +107,8 @@ function idDublication(id, usersArray){
 function idValidation(id , usersArray) {
     return id == true ;
     }
-    
+
+    //3
+function emailValidation(email) {
+    return !! email && IsIncludeAt(email, '@');
+}
