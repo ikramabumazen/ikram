@@ -18,6 +18,7 @@ function main(){
       let array= [];
       array = validUsers(usersArray);
 
+    
 
 }
 
@@ -68,5 +69,17 @@ function validUsers(usersArray){
     })
     
     return {  validU , invalidU };
+}
+/////////////////////////////////////
+
+function isValidU(user, usersArray){
+    let value = 
+    user && 
+    idValidation(user.id , usersArray) && 
+    emailValidation(user.email) && 
+    ageValidation(user.age);
+
+    return value;
+
 }
 
