@@ -83,3 +83,23 @@ function isValidU(user, usersArray){
 
 }
 
+/////////////////////////////////////
+//1
+function idDublication(id, usersArray){
+
+    let count = 0;
+    users.forEach(user => { if (user.id == id) { count++;  }
+    });
+
+    if (count > 1) {
+
+        console.log('ID is Dublicated');
+        return true;
+    }
+    else {
+
+        console.log('ID is not Dublicated');
+        return false;
+    }
+}
+
