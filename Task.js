@@ -18,7 +18,12 @@ function main(){
       let array= [];
       array = validUsers(usersArray);
 
-    
+    //2.CheckValidationOfEmail
+    CheckValidationOfEmail(usersArray.email);
+
+    //6.store users in json file
+     storeUsersToJsonFile(usersArray) ;
+
 
 }
 
@@ -131,4 +136,10 @@ function CheckValidationOfEmail(email){
   }
    console.log("Invalid Email")    
    return false;
+}
+
+
+function storeUsersToJsonFile(usersArray) {
+    let jsonUsers = JSON.stringify(usersArray);
+    fs.writeFileSync("./users.json", jsonUsers);
 }
