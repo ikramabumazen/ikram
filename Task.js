@@ -122,3 +122,13 @@ function IsIncludeAt(st , sub){
     return st.indexOf(sub) > -1
 }
     
+function CheckValidationOfEmail(email){
+    return true;
+
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email.value))
+  {
+    return (true)
+  }
+   console.log("Invalid Email")    
+   return false;
+}
